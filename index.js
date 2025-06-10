@@ -4,7 +4,7 @@ import cors from 'cors';
 import cookieParser from "cookie-parser";
 import userRoutes from './src/Users/user.route.js';
 import jwtAuth from './src/middleware/jwt.auth.js';
-import expnseRoutes from './src/Expenses/expenses.routes.js';
+import expenseRoutes from './src/Expenses/expenses.routes.js';
 
 
 
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use('/api/users',userRoutes);
-app.use('/api/expenses', jwtAuth, expnseRoutes);
+app.use('/api/expenses', jwtAuth, expenseRoutes);
 
 
 export default app;
