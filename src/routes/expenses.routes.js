@@ -6,6 +6,6 @@ const controller = new ExpenseController();
 
 expenseRoutes.post("/create", controller.add);
 expenseRoutes.get("/all", controller.getPages);
-expenseRoutes.get("/getOne/:id", controller.getOne);
+// expenseRoutes.get("/getOne/:id", controller.getOne);
 
 export default expenseRoutes;
