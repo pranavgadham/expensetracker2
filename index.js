@@ -2,9 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from "cookie-parser";
-import userRoutes from './src/Users/user.route.js';
+import userRoutes from './src/schema/user.route.js';
 import jwtAuth from './src/middleware/jwt.auth.js';
-import expenseRoutes from './src/Expenses/expenses.routes.js';
+import expenseRoutes from './src/model/expenses.routes.js';
 
 
 

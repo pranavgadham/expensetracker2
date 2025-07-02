@@ -1,6 +1,5 @@
-import expenseModel from "./expense.model.js";
-import { client as redisClient } from "../config/redis.config.js";
-import { request } from "express";
+import expenseModel from "../model/expense.model.js";
+// import { client as redisClient } from "../config/redis.config.js";
 
 const model = new expenseModel();
 
@@ -25,29 +24,29 @@ export default class ExpenseController {
     }
   };
 
-  getOne = async (req, res) => {
-    try {
-      const { id } = req.params;
-      const userId = req.user.userId;
+  // getOne = async (req, res) => {
+  //   try {
+  //     const { id } = req.params;
+  //     const userId = req.user.userId;
 
-      const cashKey = id;
-      const cashedExpense = await redisClient.get(cashKey);
-      if (cashedExpense) {
-        return res.send({ success: true, data: JSON.parse(cashedExpense) });
-      }
+  //     const cashKey = id;
+  //     const cashedExpense = await redisClient.get(cashKey);
+  //     if (cashedExpense) {
+  //       return res.send({ success: true, data: JSON.parse(cashedExpense) });
+  //     }
 
-      const expense = await model.getOne(id, userId);
+  //     const expense = await model.getOne(id, userId);
 
-      if (!expense) {
-        return res.send({ success: false, message: "Expense not found" });
-      }
+  //     if (!expense) {
+  //       return res.send({ success: false, message: "Expense not found" });
+  //     }
 
-      await redisClient.set(cashKey, JSON.stringify(expense), { EX: 3600 });
-      res.send({ success: true, data: expense });
-    } catch (err) {
-      res.send({ success: false, message: "Error retrieving expense" });
-    }
-  };
+  //     await redisClient.set(cashKey, JSON.stringify(expense), { EX: 3600 });
+  //     res.send({ success: true, data: expense });
+  //   } catch (err) {
+  //     res.send({ success: false, message: "Error retrieving expense" });
+  //   }
+  // };
 
   getPages = async (req, res) => {
     try {

@@ -1,4 +1,4 @@
-import { userModel } from "./user.model.js";
+import { userModel } from "../model/user.model.js";
 import jwt from "jsonwebtoken";
 
 const model = new userModel();

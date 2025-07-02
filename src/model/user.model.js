@@ -1,4 +1,4 @@
-import UserModel from "./user.schema.js";
+import UserModel from "../schema/user.schema.js";
 
 export class userModel{
     createUser = async({name,email,password}) => {

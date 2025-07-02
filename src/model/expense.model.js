@@ -1,4 +1,4 @@
-import ExpenseModel from "./expense.schema.js";
+import ExpenseModel from "../schema/expense.schema.js";
 
 class expenseModel {
   addExpense = async ({ name, amount, date }, userId) => {
